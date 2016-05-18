@@ -1,0 +1,17 @@
+<% @categories.each do |category| %>
+	<h1><%= category.name if category.id.to_i == @category_id.to_i %></h1>
+<% end %>
+
+<% counter = 0 %>
+
+<% @posts.each do |post| %>  
+	<% if post.category_id.to_i == @category_id.to_i %>
+		<% counter += 1 %>
+		<h3><%= link_to post.title, post %></h3>
+		<p><%= post.body %></p>
+	<% end %>
+<% end %>
+
+<h3><%= "Sorry, No post in this category :(" if counter == 0 %></h3>
+
+<%= link_to "Back to Categories", categories_path %> 

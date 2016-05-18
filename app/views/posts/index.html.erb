@@ -1,0 +1,8 @@
+<h1> Blog Posts</h1>
+
+<% @posts.each do |post| %>
+	<h3><%= link_to post.title, post %></h3>
+
+	<p><%= post.body[0..120] %>...</p>
+	<hr>
+<% end %>

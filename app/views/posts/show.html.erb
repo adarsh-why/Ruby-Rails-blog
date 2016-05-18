@@ -1,0 +1,11 @@
+<h1><%= @post.title %></h1>
+
+<small><%= @post.created_at.strftime("%b %d. %Y") %></small>
+
+<p><%= @post.body %></p>
+
+Category:
+<% cat = Category.find_by(id: @post.category_id) %>
+<%= link_to cat.name, cat %>
+
+<p><%= link_to "Go Back", posts_path %></p>
